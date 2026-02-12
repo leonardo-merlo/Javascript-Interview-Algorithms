@@ -1,0 +1,1 @@
+// Have the function MinimumCoverageSumSegment(arr, target) return the smallest length of a contiguous subarray whose sum is greater than or equal to target. If none exists return 0 Array contains only positive integers. Example: Input: target = 11 // arr = [1,2,3,4,5]. // Output: 3
