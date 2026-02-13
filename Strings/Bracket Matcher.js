@@ -5,14 +5,6 @@ function BracketMatcher(str) {
   let matchCounter = 0;
 
   for (let c of str) {
-    if (c === ")" && matchOunter === 0) {
-      return false;
-    } else if (c === "(") {
-      matchCounter++;
-    } else if (c === ")") {
-      matchCounter--;
-    }
-
     if (c === "(") matchCounter++;
     if (c === ")") matchCounter--;
     if (matchCounter < 0) return false;
