@@ -1,0 +1,1 @@
+// Have the function MaximumFrequencyAfterIncrements(arr, k) return the maximum possible frequency of a single value after performing at most k increment operations. In one operation you can increase any element by 1. Array contains only positive integers. Example Input: arr = [1,2,4], k = 5 Output: 3
