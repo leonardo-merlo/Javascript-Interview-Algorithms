@@ -1,0 +1,1 @@
+// Given an array of integers nums and an integer k, return the number of subarrays where the product of all elements is strictly less than k. Input: nums = [10, 5, 2, 6], k = 100  →  Output: 8 Input: nums = [1, 2, 3],     k = 0    →  Output: 0

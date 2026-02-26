@@ -1,15 +1,17 @@
 // Description Given two strings s and t, return the shortest substring of s that contains all characters of t (including duplicates). If no such substring exists, return "". Examples Input:  s = "ADOBECODEBANC", t = "ABC" Output: "BANC" Input:  s = "a", t = "a" Output: "a" Input:  s = "a", t = "b" Output: ""
 
 function minimumWindowSubstring(s, t) {
+  if (!s || !t || s.length < t.length) return "";
+
   let tCount = {};
   let windowCount = {};
   let left = 0;
   let formed = 0;
-  let minSub = "";
+  let minLen = Infinity;
+  let start = 0;
 
-  for (let i = 0; i < t.length; i++) {
-    let tChar = t[i];
-    tCount[tChar] = (tCount[tChar] || 0) + 1;
+  for (let char of t) {
+    tCount[char] = (tCount[char] || 0) + 1;
   }
 
   const required = Object.keys(tCount).length;
@@ -23,7 +25,10 @@ function minimumWindowSubstring(s, t) {
     }
 
     while (formed === required) {
-      minSub = s.slice(left, right + 1);
+      if (right - left + 1 < minLen) {
+        minLen = right - left + 1;
+        start = left;
+      }
       let leftChar = s[left];
       windowCount[leftChar]--;
       if (windowCount[leftChar] < tCount[leftChar]) formed--;
@@ -31,7 +36,7 @@ function minimumWindowSubstring(s, t) {
     }
   }
 
-  return minSub;
+  return minLen === Infinity ? 0 : s.slice(start, start + minLen);
 }
 
 console.log(minimumWindowSubstring("ADOBECODEBANC", "ABC")); // Output: "BANC"
